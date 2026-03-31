@@ -398,7 +398,6 @@ netstat -tulpn | grep :3000
 ```bash
 # Vérifier les variables d'environnement
 echo $MISTRAL_API_KEY
-echo $GOOGLE_API_KEY
 ```
 
 3. **Fichier non supporté** :
@@ -425,29 +424,37 @@ echo $GOOGLE_API_KEY
 
 1. Fork le projet
 2. Créer une branche feature
+
 ```bash
 git checkout -b feature/nouvelle-fonctionnalite
 ```
+
 3. Commit les changements
+
 ```bash
 git commit -m 'Ajouter nouvelle fonctionnalité'
 ```
+
 4. Push la branche
+
 ```bash
 git push origin feature/nouvelle-fonctionnalite
 ```
+
 5. Ouvrir une Pull Request
 
 ## 📝 Notes de Version
 
 ### v1.0.0 (Courant)
-- ✅ Analyse de CV (PDF, DOCX)
-- ✅ IA avec Mistral et Gemini
-- ✅ Dashboard interactif
-- ✅ Scores détaillés
-- ✅ Recommandations
+
+- Analyse de CV (PDF, DOCX)
+- IA avec Mistral
+- Dashboard interactif
+- Scores détaillés
+- Recommandations
 
 ### Roadmap
+
 - 📋 Export PDF des rapports
 - 🔄 Multi-langues
 - 👤 Profils utilisateurs
@@ -457,13 +464,5 @@ git push origin feature/nouvelle-fonctionnalite
 ## 📄 Licence
 
 Ce projet est sous licence MIT - voir le fichier [LICENSE](./LICENSE) pour les détails.
-
-## 📞 Support
-
-- **Documentation** : README.md
-- **Issues** : GitHub Issues
-- **Email** : support@audit-cv-flow.com
-
----
 
 **Audit CV Flow** - Votre plateforme d'analyse intelligente de CV 📄🤖✨
