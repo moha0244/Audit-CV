@@ -1,33 +1,16 @@
 "use server";
 
-import { AnalysisResult } from "@/lib/types";
+import { AnalysisResult } from "@/lib/interfaces/analysis";
+import { AnalysisAPI } from "@/services";
 
 export async function analyzeCV(fileContent: string): Promise<AnalysisResult> {
   try {
-    // Appeler l'API backend pour l'analyse
-    const response = await fetch(`${process.env.BACKEND_URL || 'http://localhost:8000'}/api/analyze`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ content: fileContent }),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      
-      // Vérifier si c'est une erreur de quota
-      if (errorData.error?.includes('quota') || 
-          errorData.error?.includes('rate limit') || 
-          errorData.error?.includes('RESOURCE_EXHAUSTED') ||
-          response.status === 429) {
-        throw new Error('QUOTA_EXCEEDED');
-      }
-      
-      throw new Error(`Erreur backend: ${response.status}`);
-    }
-
-    const result = await response.json();
+    // Convertir le contenu en fichier pour l'API
+    const blob = new Blob([fileContent], { type: 'text/plain' });
+    const file = new File([blob], 'cv.txt', { type: 'text/plain' });
+    
+    // Utiliser le service API pour l'analyse
+    const result = await AnalysisAPI.completeAnalysis(file);
     return result;
     
   } catch (error) {

@@ -3,6 +3,7 @@ export * from './analysis-storage';
 export * from './classnames';
 export * from './file-utils';
 export * from './analysis-utils';
+export * from './api';
 
 // Re-export cn from the dedicated cn.ts file
 export { cn } from './cn';
