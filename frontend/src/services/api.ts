@@ -1,14 +1,12 @@
 import { AnalysisResult } from "@/lib/interfaces/analysis";
 import {
   AnalysisStepResponse,
-
 } from "@/lib/interfaces/api";
+import { API_BASE_URL } from "@/config/environment";
 
 export class AnalysisAPI {
-  private static readonly API_BASE_URL = "http://localhost:8000/analyze";
-
   private static async makeRequest(formData: FormData): Promise<Response> {
-    const response = await fetch(this.API_BASE_URL, {
+    const response = await fetch(API_BASE_URL, {
       method: "POST",
       body: formData,
     });
