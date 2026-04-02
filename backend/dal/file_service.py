@@ -62,7 +62,7 @@ class FileExtractionService(IDataAccess):
         """Analyser le contenu avec Mistral AI"""
         try:
             prompt = f"""
-            Analyse ce CV et fournis une évaluation détaillée au format JSON avec la structure suivante:
+            Analyse ce CV comme un recruteur expérimenté, et fournis une évaluation détaillée au format JSON avec la structure suivante:
             {{
                 "score": 0-100,
                 "strengths": ["force1", "force2"],
@@ -146,7 +146,7 @@ class FileExtractionService(IDataAccess):
         """Analyser la structure du CV avec Mistral AI"""
         try:
             prompt = f"""
-            Analyse la structure de ce CV et fournis une évaluation au format JSON:
+            Analyse la structure de ce CV comme un recruteur expérimenté et fournis une évaluation au format JSON:
             {{
                 "structure": {{
                     "hasContactInfo": true/false,
@@ -187,7 +187,7 @@ class FileExtractionService(IDataAccess):
         """Évaluer la compatibilité ATS avec Mistral AI"""
         try:
             prompt = f"""
-            Évalue la compatibilité ATS de ce CV et fournis une évaluation au format JSON:
+            Évalue la compatibilité ATS de ce CV comme un recruteur expérimenté et fournis une évaluation au format JSON:
             {{
                 "atsScore": 0-100,
                 "recommendations": [
@@ -241,7 +241,7 @@ class FileExtractionService(IDataAccess):
         """Vérifier la formulation du CV avec Mistral AI"""
         try:
             prompt = f"""
-            Analyse la formulation et le style de ce CV et fournis une évaluation au format JSON:
+            Analyse la formulation et le style de ce CV comme un recruteur expérimenté et fournis une évaluation au format JSON:
             {{
                 "formulationScore": 0-100,
                 "formulationIssues": [
