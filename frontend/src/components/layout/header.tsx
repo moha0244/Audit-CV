@@ -1,4 +1,4 @@
-import { ArrowLeft, FileCheck } from "lucide-react";
+import { ArrowLeft, FileCheck, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components";
 
@@ -8,11 +8,16 @@ interface HeaderProps {
   isLeaving?: boolean;
 }
 
-export function Header({ showBackButton = false, onBackClick, isLeaving = false }: HeaderProps) {
+export function Header({
+  showBackButton = false,
+  onBackClick,
+  isLeaving = false,
+}: HeaderProps) {
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 md:px-6">
-        <div className="flex items-center gap-3">
+    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/80 backdrop-blur-md shadow-sm transition-all duration-300">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6 md:py-4">
+        {/* Left section - Logo/Brand */}
+        <div className="flex items-center gap-4">
           {showBackButton ? (
             <Button
               variant="secondary"
@@ -30,19 +35,26 @@ export function Header({ showBackButton = false, onBackClick, isLeaving = false 
               )}
             </Button>
           ) : (
-            <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-100 bg-blue-50">
-                <FileCheck size={18} className="text-blue-600" />
+            <Link
+              href="/"
+              className="group flex items-center gap-2 transition-all hover:opacity-90 md:gap-3"
+            >
+              <div className="rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 p-1.5 shadow-sm transition-all group-hover:shadow-md md:p-2">
+                <FileCheck className="h-4 w-4 text-white md:h-5 md:w-5" />
               </div>
-              <h1 className="text-[20px] font-bold tracking-[-0.02em] text-slate-950">
-               CV-Flow
-              </h1>
+              <div>
+                <h1 className="text-base font-bold tracking-tight text-slate-900 md:text-xl">
+                  Votre CV,{" "}
+                  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                    notre expertise
+                  </span>
+                </h1>
+                <p className="hidden text-xs text-slate-500 md:block">
+                  Audit instantané par IA
+                </p>
+              </div>
             </Link>
           )}
-        </div>
-        
-        <div className="text-sm text-slate-600">
-          Analyse de CV instantanée par IA
         </div>
       </div>
     </header>
