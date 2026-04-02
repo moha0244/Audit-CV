@@ -2,7 +2,7 @@ import PyPDF2
 import docx
 import io
 import re
-from mistralai.client import Mistral
+from mistralai import Mistral
 from typing import Dict, Any
 from .interfaces import IDataAccess, AnalysisResult
 import json
