@@ -2,11 +2,11 @@ import { AnalysisResult } from "@/lib/interfaces/analysis";
 import {
   AnalysisStepResponse,
 } from "@/lib/interfaces/api";
-import { API_BASE_URL } from "@/config/environment";
+import { environment } from "@/config/environment";
 
 export class AnalysisAPI {
   private static async makeRequest(formData: FormData): Promise<Response> {
-    const response = await fetch(API_BASE_URL, {
+    const response = await fetch(environment.apiUrl, {
       method: "POST",
       body: formData,
     });
