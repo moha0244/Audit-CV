@@ -2,7 +2,7 @@ import PyPDF2
 import docx
 import io
 import re
-from mistralai import Mistral
+import requests
 from typing import Dict, Any
 from .interfaces import IDataAccess, AnalysisResult
 import json
@@ -15,7 +15,8 @@ class FileExtractionService(IDataAccess):
     """Service d'extraction de fichiers"""
     
     def __init__(self, mistral_api_key: str):
-        self.client = Mistral(api_key=mistral_api_key)
+        self.api_key = mistral_api_key
+        self.base_url = "https://api.mistral.ai/v1"
     
     async def extract_text_from_file(self, file_content: bytes, filename: str) -> str:
         """Extraire le texte d'un fichier PDF ou DOCX"""
@@ -108,11 +109,21 @@ class FileExtractionService(IDataAccess):
             {content}
             """
             
-            response = self.client.chat.complete(
-                model=settings.mistral_model,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            response_text = response.choices[0].message.content
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json"
+            }
+            
+            data = {
+                "model": settings.mistral_model,
+                "messages": [{"role": "user", "content": prompt}]
+            }
+            
+            response = requests.post(f"{self.base_url}/chat/completions", 
+                                   headers=headers, json=data)
+            response.raise_for_status()
+            
+            response_text = response.json()["choices"][0]["message"]["content"]
             
             # Extraire le JSON de la réponse
             json_match = re.search(r'\{[\s\S]*\}', response_text)
@@ -166,11 +177,21 @@ class FileExtractionService(IDataAccess):
             {content}
             """
             
-            response = self.client.chat.complete(
-                model=settings.mistral_model,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            response_text = response.choices[0].message.content
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json"
+            }
+            
+            data = {
+                "model": settings.mistral_model,
+                "messages": [{"role": "user", "content": prompt}]
+            }
+            
+            response = requests.post(f"{self.base_url}/chat/completions", 
+                                   headers=headers, json=data)
+            response.raise_for_status()
+            
+            response_text = response.json()["choices"][0]["message"]["content"]
             
             # Extraire le JSON de la réponse
             json_match = re.search(r'\{[\s\S]*\}', response_text)
@@ -212,11 +233,21 @@ class FileExtractionService(IDataAccess):
             {content}
             """
             
-            response = self.client.chat.complete(
-                model=settings.mistral_model,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            response_text = response.choices[0].message.content
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json"
+            }
+            
+            data = {
+                "model": settings.mistral_model,
+                "messages": [{"role": "user", "content": prompt}]
+            }
+            
+            response = requests.post(f"{self.base_url}/chat/completions", 
+                                   headers=headers, json=data)
+            response.raise_for_status()
+            
+            response_text = response.json()["choices"][0]["message"]["content"]
             
             # Extraire le JSON de la réponse
             json_match = re.search(r'\{[\s\S]*\}', response_text)
@@ -266,11 +297,21 @@ class FileExtractionService(IDataAccess):
             {content}
             """
             
-            response = self.client.chat.complete(
-                model=settings.mistral_model,
-                messages=[{"role": "user", "content": prompt}]
-            )
-            response_text = response.choices[0].message.content
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json"
+            }
+            
+            data = {
+                "model": settings.mistral_model,
+                "messages": [{"role": "user", "content": prompt}]
+            }
+            
+            response = requests.post(f"{self.base_url}/chat/completions", 
+                                   headers=headers, json=data)
+            response.raise_for_status()
+            
+            response_text = response.json()["choices"][0]["message"]["content"]
             
             # Extraire le JSON de la réponse
             json_match = re.search(r'\{[\s\S]*\}', response_text)
