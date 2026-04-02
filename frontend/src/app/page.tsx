@@ -4,7 +4,7 @@
 import Navbar from "@/components/header";
 import { HeroSection, HowItWorksSection, FAQSection, Footer, BackToTop } from "@/components/content";
 import { useState, useRef, useEffect } from "react";
-import { UI_CONSTANTS } from "@/lib/constants/index";
+import { UI_CONSTANTS } from "@/lib/constants";
 import {
   startAnalysisSession,
   clearAllSessionData,

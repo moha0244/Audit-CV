@@ -1,6 +1,6 @@
 "use client";
 
-import { UI_CONSTANTS } from "@/lib/constants/index";
+import { UI_CONSTANTS } from "@/lib/constants";
 import { HowItWorksStep, HowItWorksSectionProps } from "@/lib/interfaces";
 import { Badge } from "@/components";
 import { Step } from "@/components/progress";

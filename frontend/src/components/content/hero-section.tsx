@@ -2,7 +2,7 @@
 
 import { Badge, Button, AnalysisSteps } from "@/components";
 import { UploadArea } from "@/components/forms";
-import { UI_CONSTANTS } from "@/lib/constants/index";
+import { UI_CONSTANTS } from "@/lib/constants";
 import { HeroSectionProps } from "@/lib/interfaces";
 import { Upload, BarChart3, CheckCircle2, Circle, Zap } from "lucide-react";
 import { useRef } from "react";

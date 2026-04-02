@@ -1,7 +1,7 @@
 "use client";
 
 import { Badge } from "@/components";
-import { UI_CONSTANTS } from "@/lib/constants/index";
+import { UI_CONSTANTS } from "@/lib/constants";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";

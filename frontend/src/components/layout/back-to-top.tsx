@@ -2,7 +2,7 @@
 
 import { ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { UI_CONSTANTS } from "@/lib/constants/index";
+import { UI_CONSTANTS } from "@/lib/constants";
 
 import { BackToTopProps } from "@/lib/interfaces";
 

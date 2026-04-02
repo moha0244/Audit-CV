@@ -1,6 +1,6 @@
 "use client";
 
-import { UI_CONSTANTS } from "@/lib/constants/index";
+import { UI_CONSTANTS } from "@/lib/constants";
 
 export default function Footer() {
   return (
