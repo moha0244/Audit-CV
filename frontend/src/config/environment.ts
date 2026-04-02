@@ -4,7 +4,7 @@ import { environment as productionEnv } from "./environment.production";
 // Configuration par défaut (développement)
 const developmentEnv = {
   production: false,
-  apiUrl: "http://localhost:8000/analyze",
+  apiUrl: "https://audit-cv-1.onrender.com/analyze",
 };
 
 const isProduction = process.env.NODE_ENV === "production";
