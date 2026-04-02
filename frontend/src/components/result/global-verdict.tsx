@@ -1,7 +1,7 @@
 import { GlobalVerdictProps } from "@/lib/interfaces";
 import { cn } from "@/services/cn";
 import { getVerdictLabel, getVerdictColor } from "@/services/analysis-utils";
-import { CircularScore } from "@/components/ui/circular-score";
+import { Score } from "@/components";
 
 export function GlobalVerdict({ analysisData }: GlobalVerdictProps) {
   const verdict = getVerdictLabel(analysisData.overallVerdict);
@@ -11,11 +11,11 @@ export function GlobalVerdict({ analysisData }: GlobalVerdictProps) {
     <section className="rounded-[28px] border border-slate-200 bg-white px-8 py-10 shadow-[0_1px_2px_rgba(15,23,42,0.04)] md:px-12 md:py-12">
       <div className="grid gap-10 md:grid-cols-[220px_minmax(0,1fr)] md:items-center">
         <div className="flex flex-col items-center justify-center gap-5">
-          <CircularScore
+          <Score
+            variant="circular"
             score={analysisData.score}
             verdict={analysisData.overallVerdict}
-            size={152}
-            innerSize={112}
+            size="md"
           />
 
           <span

@@ -1,6 +1,6 @@
 import { ArrowLeft, FileCheck } from "lucide-react";
 import Link from "next/link";
-import { Button } from "./button";
+import { Button } from "@/components";
 
 interface HeaderProps {
   showBackButton?: boolean;

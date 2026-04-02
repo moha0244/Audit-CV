@@ -2,12 +2,7 @@
 "use client";
 
 import Navbar from "@/components/header";
-import HeroSection from "@/components/hero-section";
-import HowItWorksSection from "@/components/how-it-works-section";
-import FAQSection from "@/components/faq-section";
-import Footer from "@/components/footer";
-
-import BackToTop from "@/components/back-to-top";
+import { HeroSection, HowItWorksSection, FAQSection, Footer, BackToTop } from "@/components/content";
 import { useState, useRef, useEffect } from "react";
 import { UI_CONSTANTS } from "@/lib/constants/index";
 import {

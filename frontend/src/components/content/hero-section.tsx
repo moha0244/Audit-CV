@@ -1,6 +1,7 @@
 "use client";
 
-import { Badge, UploadArea, Button, AnalysisSteps } from "@/components/ui";
+import { Badge, Button, AnalysisSteps } from "@/components";
+import { UploadArea } from "@/components/forms";
 import { UI_CONSTANTS } from "@/lib/constants/index";
 import { HeroSectionProps } from "@/lib/interfaces";
 import { Upload, BarChart3, CheckCircle2, Circle, Zap } from "lucide-react";

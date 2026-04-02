@@ -2,7 +2,8 @@
 
 import { UI_CONSTANTS } from "@/lib/constants/index";
 import { HowItWorksStep, HowItWorksSectionProps } from "@/lib/interfaces";
-import { Badge, Step } from "@/components/ui";
+import { Badge } from "@/components";
+import { Step } from "@/components/progress";
 import { Upload, Search, BarChart3, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 

@@ -1,6 +1,6 @@
 import { ResultHeaderProps } from "@/lib/interfaces";
-import { Header } from "@/components/ui/header";
-import { ConfirmDialog } from "@/components/ui/confirm-dialog";
+import { Header } from "@/components/layout";
+import { ConfirmDialog } from "@/components/feedback";
 import { clearAllSessionData } from "@/components/guards/route-guard";
 import { clearAnalysisResult } from "@/services";
 

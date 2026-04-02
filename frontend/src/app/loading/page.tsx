@@ -7,10 +7,8 @@ import { setAnalysisResult, AnalysisAPI } from "@/services";
 import RouteGuard, {
   startAnalysisSession,
 } from "@/components/guards/route-guard";
-import { LoadingHeader } from "@/components/loading/loading-header";
-import { AnalysisProgress } from "@/components/loading/analysis-progress";
+import { LoadingHeader, AnalysisProgress, QuotaExceededPopup } from "@/components";
 import { getStoredFile } from "@/services/file-utils";
-import { QuotaExceededPopup } from "@/components/ui/quota-exceeded-popup";
 
 export default function Loading() {
   const router = useRouter();

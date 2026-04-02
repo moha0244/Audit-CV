@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@/components/ui";
+import { Badge } from "@/components";
 import { UI_CONSTANTS } from "@/lib/constants/index";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { useState } from "react";
