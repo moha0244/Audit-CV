@@ -28,6 +28,9 @@ class StepResult(BaseModel):
     structure: Optional[Dict[str, bool]] = None
     atsScore: Optional[int] = None
     recommendations: Optional[list] = None
+    formulationScore: Optional[int] = None
+    formulationIssues: Optional[list] = None
+    suggestions: Optional[list] = None
 
 class IDataAccess(ABC):
     """Interface pour l'accès aux données"""
@@ -50,6 +53,11 @@ class IDataAccess(ABC):
     @abstractmethod
     async def evaluate_ats_with_ai(self, content: str) -> Dict[str, Any]:
         """Évaluer la compatibilité ATS avec l'IA"""
+        pass
+    
+    @abstractmethod
+    async def check_formulation_with_ai(self, content: str) -> Dict[str, Any]:
+        """Vérifier la formulation du CV avec l'IA"""
         pass
     
     @abstractmethod

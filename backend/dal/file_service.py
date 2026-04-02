@@ -237,6 +237,59 @@ class FileExtractionService(IDataAccess):
         except Exception as e:
             raise Exception(f"Erreur évaluation ATS IA: {str(e)}")
     
+    async def check_formulation_with_ai(self, content: str) -> Dict[str, Any]:
+        """Vérifier la formulation du CV avec Mistral AI"""
+        try:
+            prompt = f"""
+            Analyse la formulation et le style de ce CV et fournis une évaluation au format JSON:
+            {{
+                "formulationScore": 0-100,
+                "formulationIssues": [
+                    {{
+                        "type": "grammaire|orthographe|style|terminologie",
+                        "text": "texte problématique",
+                        "correction": "texte corrigé",
+                        "explanation": "explication de l'erreur"
+                    }}
+                ],
+                "suggestions": [
+                    "suggestion d'amélioration 1",
+                    "suggestion d'amélioration 2"
+                ],
+                "strengths": [
+                    "force de formulation 1",
+                    "force de formulation 2"
+                ]
+            }}
+            
+            CV à analyser:
+            {content}
+            """
+            
+            response = self.client.chat.complete(
+                model=settings.mistral_model,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            response_text = response.choices[0].message.content
+            
+            # Extraire le JSON de la réponse
+            json_match = re.search(r'\{[\s\S]*\}', response_text)
+            if not json_match:
+                raise Exception("Format de réponse invalide")
+            
+            analysis = json.loads(json_match[0])
+            
+            # Valider et normaliser les données
+            return {
+                "formulationScore": min(100, max(0, analysis.get("formulationScore", 0))),
+                "formulationIssues": analysis.get("formulationIssues", []),
+                "suggestions": analysis.get("suggestions", []),
+                "strengths": analysis.get("strengths", [])
+            }
+            
+        except Exception as e:
+            raise Exception(f"Erreur vérification formulation IA: {str(e)}")
+    
     async def save_analysis_result(self, result: AnalysisResult) -> bool:
         """Sauvegarder le résultat d'analyse (simulation)"""
         # Dans une vraie application, sauvegarder en base de données

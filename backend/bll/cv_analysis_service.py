@@ -55,10 +55,28 @@ class CVAnalysisService(ICVAnalysisService):
                 message="Évaluation ATS terminée par l'IA",
                 atsScore=ats_analysis["atsScore"],
                 recommendations=ats_analysis["recommendations"],
-                nextStep="complete"
+                nextStep="formulation"
             )
         except Exception as e:
             raise Exception(f"Erreur évaluation ATS: {str(e)}")
+    
+    async def check_formulation(self, content: str) -> StepResult:
+        """Vérifier la formulation du CV avec l'IA"""
+        try:
+            # Utiliser l'IA pour vérifier la formulation
+            formulation_analysis = await self.data_access.check_formulation_with_ai(content)
+            
+            return StepResult(
+                step="formulation",
+                status="completed",
+                message="Vérification de la formulation terminée par l'IA",
+                formulationScore=formulation_analysis["formulationScore"],
+                formulationIssues=formulation_analysis.get("formulationIssues", []),
+                suggestions=formulation_analysis.get("suggestions", []),
+                nextStep="complete"
+            )
+        except Exception as e:
+            raise Exception(f"Erreur vérification formulation: {str(e)}")
     
     async def complete_analysis(self, content: str) -> AnalysisResult:
         """Analyse complète du CV"""

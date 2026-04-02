@@ -85,6 +85,9 @@ async def analyze_cv(file: UploadFile = File(...), step: str = "complete"):
         elif step == "ats":
             return await business_logic.evaluate_ats(text)
         
+        elif step == "formulation":
+            return await business_logic.check_formulation(text)
+        
         else:  # complete
             analysis = await business_logic.complete_analysis(text)
             return {

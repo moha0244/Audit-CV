@@ -1,38 +1,52 @@
 import { ResultHeaderProps } from "@/lib/interfaces";
-import { ArrowLeft, FileText, SlidersHorizontal } from "lucide-react";
+import { Header } from "@/components/ui/header";
+import { ConfirmDialog } from "@/components/ui/confirm-dialog";
 import { clearAllSessionData } from "@/components/guards/route-guard";
 import { clearAnalysisResult } from "@/services";
 
+import { useState } from "react";
+
 export function ResultHeader({}: ResultHeaderProps) {
+  const [isLeaving, setIsLeaving] = useState(false);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+
   const handleGoBack = () => {
-    // Clear session data when leaving result page
-    clearAllSessionData();
-    clearAnalysisResult();
-    window.location.href = "/";
+    setShowConfirmDialog(true);
+  };
+
+  const confirmGoBack = () => {
+    setIsLeaving(true);
+    setShowConfirmDialog(false);
+
+    // Petit délai pour montrer le feedback
+    setTimeout(() => {
+      clearAllSessionData();
+      clearAnalysisResult();
+      window.location.href = "/";
+    }, 200);
+  };
+
+  const cancelGoBack = () => {
+    setShowConfirmDialog(false);
   };
 
   return (
-    <div className="border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 md:px-6">
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={handleGoBack}
-            className="rounded-xl p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900"
-          >
-            <ArrowLeft size={22} />
-          </button>
+    <>
+      <Header 
+        showBackButton={true}
+        onBackClick={handleGoBack}
+        isLeaving={isLeaving}
+      />
 
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-100 bg-blue-50">
-              <FileText size={18} className="text-blue-600" />
-            </div>
-            <h1 className="text-[20px] font-bold tracking-[-0.02em] text-slate-950">
-              Audit-Mon-CV
-            </h1>
-          </div>
-        </div>
-      </div>
-    </div>
+      <ConfirmDialog
+        isOpen={showConfirmDialog}
+        onClose={cancelGoBack}
+        onConfirm={confirmGoBack}
+        title="Confirmer le retour"
+        message="Êtes-vous sûr de vouloir retourner à la page d'accueil ? Toutes les données d'analyse seront effacées."
+        confirmText="Retourner"
+        cancelText="Annuler"
+      />
+    </>
   );
 }
