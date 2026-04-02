@@ -1,4 +1,4 @@
-import { AnalysisResult } from "@/lib/types";
+﻿import { AnalysisResult } from "@/lib/interfaces";
 
 export function getVerdictLabel(verdict?: AnalysisResult["overallVerdict"]) {
   switch (verdict) {

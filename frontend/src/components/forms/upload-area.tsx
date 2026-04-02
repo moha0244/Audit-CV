@@ -2,7 +2,7 @@
 import { cn } from "@/services";
 import { LucideIcon, Upload, X, FileText, CheckCircle2 } from "lucide-react";
 import { forwardRef } from "react";
-import { UploadAreaProps } from "@/lib/ui-types";
+import { UploadAreaProps } from "@/lib/interfaces";
 
 const UploadArea = forwardRef<HTMLDivElement, UploadAreaProps>(
   (

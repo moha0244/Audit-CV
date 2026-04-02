@@ -32,7 +32,7 @@ export function ResultHeader({}: ResultHeaderProps) {
 
   return (
     <>
-      <Header 
+      <Header
         showBackButton={true}
         onBackClick={handleGoBack}
         isLeaving={isLeaving}
@@ -44,7 +44,7 @@ export function ResultHeader({}: ResultHeaderProps) {
         onConfirm={confirmGoBack}
         title="Confirmer le retour"
         message="Êtes-vous sûr de vouloir retourner à la page d'accueil ? Toutes les données d'analyse seront effacées."
-        confirmText="Retourner"
+        confirmText="Confirmer"
         cancelText="Annuler"
       />
     </>

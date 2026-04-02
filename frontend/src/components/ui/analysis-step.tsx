@@ -2,7 +2,7 @@ import { AnalysisStepItemProps } from "@/lib/interfaces";
 import { CheckCircle2, Circle, Loader2 } from "lucide-react";
 
 export default function AnalysisStepItem({ step, currentStep, index }: AnalysisStepItemProps) {
-  const isCompleted = step.completed;
+  const isCompleted = step.status === "completed";
   const isCurrent = currentStep === index + 1;
   const isPending = !isCompleted && !isCurrent;
 

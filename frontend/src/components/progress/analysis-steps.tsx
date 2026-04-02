@@ -1,14 +1,7 @@
 import { cn } from "@/services";
+import { AnalysisStep } from "@/lib/interfaces";
 import { LucideIcon } from "lucide-react";
 import { CheckCircle2, Circle, Loader2 } from "lucide-react";
-
-interface AnalysisStep {
-  id: string;
-  title: string;
-  description: string;
-  status: "pending" | "loading" | "completed" | "error";
-  icon?: LucideIcon;
-}
 
 interface AnalysisStepsProps {
   steps: AnalysisStep[];

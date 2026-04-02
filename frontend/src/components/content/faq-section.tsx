@@ -7,9 +7,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FAQ, FAQSectionProps } from "@/lib/interfaces";
 
-const defaultFaqs: FAQ[] = UI_CONSTANTS.FAQ.QUESTIONS;
+const defaultFaqs: readonly FAQ[] = UI_CONSTANTS.FAQ.QUESTIONS;
 
-export default function FAQSection({ faqs = defaultFaqs }: FAQSectionProps) {
+export default function FAQSection({ faqs = [...defaultFaqs] }: FAQSectionProps) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   return (

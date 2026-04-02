@@ -101,7 +101,7 @@ export function ConfirmDialog({
         {cancelText}
       </Button>
       <Button
-        variant={confirmVariant}
+        variant={confirmVariant === "danger" ? "secondary" : confirmVariant}
         onClick={onConfirm}
         className={confirmVariant === "danger" ? "bg-red-600 hover:bg-red-700" : ""}
       >

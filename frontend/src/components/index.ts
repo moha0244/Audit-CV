@@ -18,7 +18,7 @@ export * from "./progress";
 export * from "./content";
 
 // Core UI components
-export { Badge } from "./ui/badge";
+export { default as Badge } from "./ui/badge";
 export { Button } from "./ui/button";
 export { AnalysisSteps } from "./progress/analysis-steps";
 export { QuotaExceededPopup } from "./ui/quota-exceeded-popup";

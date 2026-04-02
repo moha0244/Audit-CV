@@ -1,5 +1,5 @@
 import { cn } from "@/services";
-import { BadgeProps } from "@/lib/ui-types";
+import { BadgeProps } from "@/lib/interfaces";
 
 const Badge = ({ variant = "default", size = "md", icon: Icon, children, className }: BadgeProps) => {
   const baseStyles = "inline-flex items-center font-medium rounded-full";
@@ -24,4 +24,4 @@ const Badge = ({ variant = "default", size = "md", icon: Icon, children, classNa
   );
 };
 
-export { Badge };
+export default Badge;

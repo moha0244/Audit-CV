@@ -1,4 +1,4 @@
-import { ProgressBarProps } from "@/lib/ui-types";
+import { ProgressBarProps } from "@/lib/interfaces";
 
 export default function ProgressBar({ currentStep, totalSteps, className = "" }: ProgressBarProps) {
   const progress = (currentStep / totalSteps) * 100;

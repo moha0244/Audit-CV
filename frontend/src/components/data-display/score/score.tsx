@@ -1,9 +1,9 @@
-import { cn } from "@/services";
+﻿import { cn } from "@/services";
 import { getProgressColor, getVerdictColor } from "@/services/analysis-utils";
 
 interface ScoreProps {
   score: number;
-  verdict?: string;
+  verdict?: "excellent" | "bon" | "moyen" | "faible";
   label?: string;
   hint?: string;
   variant: "bar" | "circular" | "card";
@@ -114,3 +114,4 @@ export function Score({
     </div>
   );
 }
+

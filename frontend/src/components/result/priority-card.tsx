@@ -1,5 +1,5 @@
 import { AlertTriangle, AlertCircle, Info } from "lucide-react";
-import { PriorityCardProps } from "@/lib/result-types";
+import { PriorityCardProps } from "@/lib/interfaces";
 
 export function PriorityCard({ priority, title, description }: PriorityCardProps) {
   const getPriorityConfig = (priority: string) => {

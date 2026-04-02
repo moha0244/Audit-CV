@@ -1,5 +1,5 @@
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
-import { ScoreCardProps } from "@/lib/result-types";
+import { ScoreCardProps } from "@/lib/interfaces";
 
 export function ScoreCard({ 
   score, 

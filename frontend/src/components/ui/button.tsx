@@ -1,5 +1,5 @@
 import { cn } from "@/services";
-import { ButtonProps } from "@/lib/ui-types";
+import { ButtonProps } from "@/lib/interfaces";
 import { forwardRef } from "react";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
