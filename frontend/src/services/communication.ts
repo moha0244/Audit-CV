@@ -1,7 +1,5 @@
 import { AnalysisResult } from "@/lib/interfaces/analysis";
-import {
-  AnalysisStepResponse,
-} from "@/lib/interfaces/api";
+import { AnalysisStepResponse } from "@/lib/interfaces/api";
 import { environment } from "@/config/environment";
 
 export class AnalysisAPI {
@@ -15,10 +13,7 @@ export class AnalysisAPI {
       const errorData = await response.json().catch(() => ({}));
 
       // Vérifier si c'est une erreur de quota
-      if (
-     
-        response.status === 429
-      ) {
+      if (response.status === 429) {
         throw new Error("QUOTA_EXCEEDED");
       }
 
