@@ -19,10 +19,7 @@ class Settings(BaseSettings):
     port: int = 8000
     
     # CORS Configuration
-    cors_origins: List[str] = [
-        "http://localhost:3000",
-        "https://cv-flow-gilt.vercel.app"
-    ]
+    cors_origins: List[str] = ["*"]
     cors_allow_credentials: bool = True
     cors_allow_methods: List[str] = ["*"]
     cors_allow_headers: List[str] = ["*"]
