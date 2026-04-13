@@ -2,5 +2,5 @@
 import { environment as productionEnv } from "./environment.production";
 
 export const environment = {
-  apiUrl: "https://audit-cv-1.onrender.com/analyze",
+  apiUrl: "https://audit-cv-jifh.onrender.com/analyze",
 };
